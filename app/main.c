@@ -16,6 +16,9 @@ int main() {
     if (strcmp(input, "exit") == 0) {
       printf("Exiting shell...\a\n");
       break;
+    } else if (strncmp(input, "echo ", 5) == 0) {
+      char *echo = input + 5;
+      printf("%s\n", echo);
     } else {
       printf("%s: command not found\n", input);
     } 
