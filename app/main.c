@@ -81,6 +81,19 @@ int main() {
       continue;
     } 
 
+    // 'Cwd' command
+    if (strncmp(input, "pwd", 3) == 0) {
+      char* pwd;
+      char buff[1024];
+
+      pwd = getcwd( buff, 1024 );
+      if( pwd != NULL ) {
+        printf( "%s\n", pwd );
+      }
+
+      continue;
+    }
+    
     // Command not found
     printf("%s: command not found\n", input);
   }
