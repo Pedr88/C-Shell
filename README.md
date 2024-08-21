@@ -14,15 +14,15 @@ Este é um shell simples desenvolvido em C. O programa implementa comandos bási
 
 1.  Clone o repositório:
     
-    `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
+    `git clone https://github.com/Pedr88/C-Shell`
     
 2.  Compile o código:
     
-    `gcc -o meu_shell meu_shell.c`
+    `gcc -o shell main.c`
     
 3.  Execute o programa:
     
-    `./meu_shell`
+    `./shell`
     
 4.  Digite os comandos desejados:
     
