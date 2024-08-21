@@ -33,6 +33,19 @@ char *findInPath(const char *command) {
   return NULL;
 }
 
+// Function to change directory
+void changeDirectory(const char *path) {
+  char resolvedPath[1024];
+
+  if (realpath(path, resolvedPath) != NULL) {
+    if (chdir(resolvedPath) != 0) {
+      perror("chdir");
+    }
+  } else {
+      perror("realpath");
+  }
+}
+
 int main() {
   char input[100];
 
@@ -66,7 +79,7 @@ int main() {
       char *type = input + 5;
 
         // Check for built-in commands
-        if (strcmp(type, "echo") == 0 || strcmp(type, "exit") == 0 || strcmp(type, "type") == 0) {
+        if (strcmp(type, "echo") == 0 || strcmp(type, "exit") == 0 || strcmp(type, "type") == 0 || strcmp(type, "pwd") == 0) {
           printf("%s is a shell builtin\n", type);
         } else {
           // Search for the command in the PATH
@@ -81,7 +94,7 @@ int main() {
       continue;
     } 
 
-    // 'Cwd' command
+    // 'Pwd' command
     if (strncmp(input, "pwd", 3) == 0) {
       char* pwd;
       char buff[1024];
@@ -93,6 +106,15 @@ int main() {
 
       continue;
     }
+
+    // 'Cd' command
+    if (strncmp(input, "cd ", 3) == 0) {
+      char *cd = input + 3;
+      changeDirectory(cd);
+
+      continue;
+    }
+    
     
     // Command not found
     printf("%s: command not found\n", input);
