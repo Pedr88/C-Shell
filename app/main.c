@@ -79,7 +79,7 @@ int main() {
       char *type = input + 5;
 
         // Check for built-in commands
-        if (strcmp(type, "echo") == 0 || strcmp(type, "exit") == 0 || strcmp(type, "type") == 0 || strcmp(type, "pwd") == 0) {
+        if (strcmp(type, "echo") == 0 || strcmp(type, "exit") == 0 || strcmp(type, "type") == 0 || strcmp(type, "pwd") == 0 || strcmp(type, "cd") == 0) {
           printf("%s is a shell builtin\n", type);
         } else {
           // Search for the command in the PATH
